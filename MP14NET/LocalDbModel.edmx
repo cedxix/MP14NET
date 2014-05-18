@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LocalDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ContribType">
+          <Key>
+            <PropertyRef Name="IDContribType" />
+          </Key>
+          <Property Name="IDContribType" Type="int" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contribution">
+          <Key>
+            <PropertyRef Name="IDContribution" />
+          </Key>
+          <Property Name="IDContribution" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Qty" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventStatus">
+          <Key>
+            <PropertyRef Name="IDStatus" />
+          </Key>
+          <Property Name="IDStatus" Type="int" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventSystem">
+          <Key>
+            <PropertyRef Name="IDEvent" />
+          </Key>
+          <Property Name="IDEvent" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adresse" Type="ntext" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Time" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventType">
+          <Key>
+            <PropertyRef Name="IDEventType" />
+          </Key>
+          <Property Name="IDEventType" Type="int" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="IDPerson" />
+          </Key>
+          <Property Name="IDPerson" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nickname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityContainer Name="LocalDbModelStoreContainer">
+          <EntitySet Name="ContribType" EntityType="Self.ContribType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contribution" EntityType="Self.Contribution" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventStatus" EntityType="Self.EventStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventSystem" EntityType="Self.EventSystem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventType" EntityType="Self.EventType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LocalDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ContribType">
+          <Key>
+            <PropertyRef Name="IDContribType" />
+          </Key>
+          <Property Name="IDContribType" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contribution">
+          <Key>
+            <PropertyRef Name="IDContribution" />
+          </Key>
+          <Property Name="IDContribution" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Qty" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventStatus">
+          <Key>
+            <PropertyRef Name="IDStatus" />
+          </Key>
+          <Property Name="IDStatus" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventSystem">
+          <Key>
+            <PropertyRef Name="IDEvent" />
+          </Key>
+          <Property Name="IDEvent" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adresse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="EventType">
+          <Key>
+            <PropertyRef Name="IDEventType" />
+          </Key>
+          <Property Name="IDEventType" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="IDPerson" />
+          </Key>
+          <Property Name="IDPerson" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="LocalDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ContribType" EntityType="Self.ContribType" />
+          <EntitySet Name="Contribution" EntityType="Self.Contribution" />
+          <EntitySet Name="EventStatus" EntityType="Self.EventStatus" />
+          <EntitySet Name="EventSystem" EntityType="Self.EventSystem" />
+          <EntitySet Name="EventType" EntityType="Self.EventType" />
+          <EntitySet Name="Person" EntityType="Self.Person" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LocalDbModelStoreContainer" CdmEntityContainer="LocalDbEntities">
+          <EntitySetMapping Name="ContribType">
+            <EntityTypeMapping TypeName="LocalDbModel.ContribType">
+              <MappingFragment StoreEntitySet="ContribType">
+                <ScalarProperty Name="IDContribType" ColumnName="IDContribType" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contribution">
+            <EntityTypeMapping TypeName="LocalDbModel.Contribution">
+              <MappingFragment StoreEntitySet="Contribution">
+                <ScalarProperty Name="IDContribution" ColumnName="IDContribution" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventStatus">
+            <EntityTypeMapping TypeName="LocalDbModel.EventStatus">
+              <MappingFragment StoreEntitySet="EventStatus">
+                <ScalarProperty Name="IDStatus" ColumnName="IDStatus" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventSystem">
+            <EntityTypeMapping TypeName="LocalDbModel.EventSystem">
+              <MappingFragment StoreEntitySet="EventSystem">
+                <ScalarProperty Name="IDEvent" ColumnName="IDEvent" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventType">
+            <EntityTypeMapping TypeName="LocalDbModel.EventType">
+              <MappingFragment StoreEntitySet="EventType">
+                <ScalarProperty Name="IDEventType" ColumnName="IDEventType" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Person">
+            <EntityTypeMapping TypeName="LocalDbModel.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="IDPerson" ColumnName="IDPerson" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
